@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the TheMAG Settings feature.
+ */
+
+include_once 'mg_settings.features.inc';

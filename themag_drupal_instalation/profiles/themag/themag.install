@@ -1,0 +1,180 @@
+<?php
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+
+function themag_install() {
+  // Enable some themag blocks.
+  $default_theme = 'themag';
+  $admin_theme = 'seven';
+  // Disable all themes.
+  db_update('system')
+    ->fields(array('status' => 0))
+    ->condition('type', 'theme')
+    ->execute();
+  // Enable $default_theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', $default_theme)
+    ->execute();
+  // Enable $admin_theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', $admin_theme)
+    ->execute();
+  variable_set('theme_default', $default_theme);
+  variable_set('admin_theme', $admin_theme);
+  // Activate admin theme when editing a node.
+  variable_set('node_admin_theme', '0');
+  // Make main menu to use the Superfish plugin.
+  variable_set('superfish_menu_1', $themag_main_menu . ':0');
+  $blocks = array(
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'title' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main-menu',
+      'theme' => $default_theme,
+      'status' => 0,
+      'weight' => 0,
+      'region' => '-1',
+      'pages' => '',
+      'title' => '<none>',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'superfish',
+      'delta' => '1',
+      'theme' => $default_theme,
+      'status' => 0,
+      'weight' => 0,
+      'region' => '-1',
+      'pages' => '',
+      'title' => '<none>',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'rrssb',
+      'delta' => 'rrssb',
+      'theme' => $default_theme,
+      'status' => 0,
+      'weight' => 0,
+      'region' => '-1 ',
+      'pages' => '',
+      'title' => '<none>',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'panels_mini',
+      'delta' => 'footer',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'footer',
+      'pages' => '',
+      'title' => '<none>',
+      'cache' => -1,
+    ),
+  );
+  // Drop system / user blocks to ensure correct building.
+  db_delete('block')->condition('module', 'system')->execute();
+  db_delete('block')->condition('module', 'user')->execute();
+  // Add in our blocks defined above.
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'title', 'cache'));
+  foreach ($blocks as $block) {
+    $query->values($block);
+  }
+  $query->execute();
+
+  // Truncate taxonomy_vocabulary table.
+  db_truncate('taxonomy_vocabulary')->execute();
+  // Create the vocabularies.
+  $vocabularies = array(
+    array(
+      'vid' => '1',
+      'name' => 'Tags',
+      'machine_name' => 'mg_tags',
+      'description' => 'Use tags to group articles on similar topics.',
+      'hierarchy' => '0',
+      'module' => 'taxonomy',
+      'weight' => '-10',
+    ),
+    array(
+      'vid' => '2',
+      'name' => 'Categories',
+      'machine_name' => 'mg_categories',
+      'description' => 'Use categories for the content categorization',
+      'hierarchy' => '1',
+      'module' => 'taxonomy',
+      'weight' => '-9',
+    ),
+  );
+  $query = db_insert('taxonomy_vocabulary')
+    ->fields(array('vid', 'name', 'machine_name', 'description', 'hierarchy', 'module', 'weight'));
+  foreach ($vocabularies as $vocabulary) {
+    $query->values($vocabulary);
+  }
+  $query->execute();
+
+  // Assigning permissions for anonymous and authenticated users.
+  // Anonymous users.
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID,
+    array('access comments',
+      'access content',
+      'access site-wide contact form',
+      'access user profiles',
+      'post comments',
+      'search content',
+    ));
+  // Authentificated users.
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID,
+    array('access comments',
+      'access content',
+      'access site-wide contact form',
+      'access user profiles',
+      'post comments',
+      'search content',
+      'skip comment approval',
+    ));
+
+  // Create a default role for site administrators, with all available permissions assigned.
+  $admin_role = new stdClass();
+  $admin_role->name = 'administrator';
+  $admin_role->weight = 10;
+  user_role_save($admin_role);
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
+
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')
+    ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
+    ->execute();
+  // Update the menu router information.
+  menu_rebuild();
+  // Revert features to ensure they are all installed.
+  $features = array(
+    'mg_content_types',
+    'mg_views',
+    'mg_pages_and_panels',
+    'mg_settings',
+  );
+  features_revert($features);
+  // Ignore any rebuild messages.
+  node_access_needs_rebuild(FALSE);
+  // Ignore any other install messages.
+  drupal_get_messages();
+}

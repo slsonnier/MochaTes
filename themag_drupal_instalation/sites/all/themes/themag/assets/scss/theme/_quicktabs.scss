@@ -1,0 +1,43 @@
+// Quicktabs Panel Pane
+// ----------------------
+[class*='pane-quicktabs-'] {
+  .pane-title {
+    margin-bottom: 0;
+  }
+}
+
+// Quicktabs style
+// ----------------------
+ul.quicktabs-tabs,
+ul.quicktabs-tabs li {
+  margin: 0px;
+  padding: 0px
+}
+
+ul.quicktabs-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  li {
+    flex: 1;
+    a {
+      display: block;
+      transition: all .2s ease-in-out;
+      padding: .7rem 5px .8rem;
+      border-bottom: 1px solid $theme-gray-light;
+      color: $secondary-dark-text-color;
+      font-weight: normal;
+      text-align: center;
+      text-decoration: none;
+      &:hover {
+        color: $primary-dark-text-color;
+        border-bottom-color: $theme-gray;
+      }
+    }
+    &.active a {
+      color: $primary-dark-text-color;
+      border-bottom-color: $brand-primary;
+      font-weight: bold;
+    }
+  }
+}

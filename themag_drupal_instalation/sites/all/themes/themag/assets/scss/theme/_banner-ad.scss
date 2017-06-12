@@ -1,0 +1,11 @@
+.banner {
+ // background: $gray-lightest;
+  border: 1px solid $gray-lighter;
+  padding: 2rem;
+  text-align: center;
+    .pane-content {
+      display: inline-block;
+      width: 100%;
+        p { margin: 0; }
+    }
+}

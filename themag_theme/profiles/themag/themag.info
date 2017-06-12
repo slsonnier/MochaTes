@@ -1,0 +1,92 @@
+; Packaging information for themag
+name = "TheMAG"
+description = "Install TheMAG Drupal Theme"
+core = "7.x"
+; ----------
+; Dependencies
+; ----------
+; Administration
+dependencies[] = admin_menu
+; Chaos tool suite
+dependencies[] = ctools
+dependencies[] = ctools_custom_content
+dependencies[] = page_manager
+dependencies[] = views_content
+; Core
+dependencies[] = block
+dependencies[] = comment
+dependencies[] = contact
+dependencies[] = contextual
+dependencies[] = dblog
+dependencies[] = field
+dependencies[] = field_sql_storage
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = node
+dependencies[] = number
+dependencies[] = options
+dependencies[] = overlay
+dependencies[] = path
+dependencies[] = php
+dependencies[] = poll
+dependencies[] = rdf
+dependencies[] = search
+dependencies[] = statistics
+dependencies[] = system
+dependencies[] = taxonomy
+dependencies[] = text
+dependencies[] = update
+dependencies[] = user
+; Fields
+dependencies[] = color_field
+dependencies[] = fences
+dependencies[] = field_group
+dependencies[] = multiupload_filefield_widget
+dependencies[] = multiupload_imagefield_widget
+; Media
+dependencies[] = video_embed_facebook
+dependencies[] = video_embed_field
+; Other
+dependencies[] = backup_migrate
+dependencies[] = entity
+dependencies[] = entity_view_mode
+dependencies[] = libraries
+dependencies[] = quicktabs
+dependencies[] = special_menu_items
+dependencies[] = strongarm
+dependencies[] = token
+dependencies[] = transliteration
+; Owl Carousel
+dependencies[] = owlcarousel
+dependencies[] = owlcarousel_fields
+dependencies[] = owlcarousel_ui
+; Panels
+dependencies[] = panels
+dependencies[] = panels_ipe
+dependencies[] = panels_mini
+; Paragraphs
+dependencies[] = paragraphs
+dependencies[] = paragraphs_id
+; RRSSB
+dependencies[] = rrssb
+; User interface
+dependencies[] = ckeditor
+dependencies[] = jquery_update
+dependencies[] = superfish
+; Variable
+dependencies[] = variable
+; Views
+dependencies[] = views
+dependencies[] = views_load_more
+dependencies[] = views_ui
+; Features
+dependencies[] = features
+dependencies[] = mg_content_types
+dependencies[] = mg_pages_and_panels
+dependencies[] = mg_settings
+dependencies[] = mg_views

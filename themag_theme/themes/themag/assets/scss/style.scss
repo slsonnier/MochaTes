@@ -1,0 +1,40 @@
+// Variables
+@import "variables/theme-variables";
+@import "variables/overridden-bootstrap-variables";
+
+// Fonts
+@import "theme/fonts";
+
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Font Awesome
+@import "font-awesome/scss/font-awesome";
+
+// TheMAG Styles
+//
+// Drupal Core Styles
+@import "drupal/messages";
+@import "drupal/vertical-tabs";
+@import "drupal/page-admin";
+@import "drupal/ipe";
+@import "drupal/node-add-edit";
+
+// Theme Styles
+@import "theme/core";
+@import "theme/back-to-top-button";
+@import "theme/forms";
+@import "theme/pager";
+@import "theme/pane";
+@import "theme/quicktabs";
+@import "theme/header";
+@import "theme/sidr-menu";
+@import "theme/banner-ad";
+@import "theme/user-profile";
+@import "theme/teasers";
+@import "theme/poll";
+@import "theme/node";
+@import "theme/comments";
+@import "theme/page-search";
+@import "theme/page-error";
+@import "theme/footer";

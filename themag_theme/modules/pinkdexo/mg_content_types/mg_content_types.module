@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the TheMAG Content Types feature.
+ */
+
+include_once 'mg_content_types.features.inc';

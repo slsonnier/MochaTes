@@ -1,0 +1,902 @@
+// -----------------------------------
+// General teaser style
+// -----------------------------------
+.teaser {
+  position: relative;
+  overflow: hidden;
+  // Post Type (iscons)
+  .field-mg-post-type .field-item {
+    display: inline-block;
+    margin-right: 2px;
+  }
+  // Teaser image
+  .image {
+    position: relative;
+    .field-mg-post-type {
+      color: transparentize($primary-light-text-color, .3);
+      line-height: 16px;
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      z-index: 5;
+    }
+  }
+  .field-mg-image {
+    position: relative;
+    // Element for image over effect
+    &:before {
+      content: "";
+      display: block;
+      transition: all 250ms ease-in-out;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 5;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  .comments-count {
+    color: transparentize($primary-light-text-color, .3);
+    font-size: .8rem;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 5;
+  }
+  // Teaser category
+  .category {
+    display: inline-block;
+    margin-bottom: .5rem;
+    padding-left: 1rem;
+    color: $secondary-dark-text-color;
+    font-size: 1.1rem;
+    line-height: 1.2rem;
+    position: relative;
+    left: 5px;
+  }
+  .category-icon {
+    background: $theme-gray-lighter;
+    width: 10px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      background: inherit;
+      width: inherit;
+      height: inherit;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 1;
+    }
+    &:before {
+      box-shadow: inset 0 0 20px 0 transparentize(#000, .7);
+      left: -5px;
+      top: -5px;
+      z-index: 0;
+    }
+  }
+  a {
+    transition: all 250ms ease-in-out;
+  }
+  a:hover .field-mg-image:before {
+    box-shadow: inset 0 0 3rem .5rem transparentize(#000, .5);
+  }
+  // Teaser title
+  .title {
+    font-family: $theme-font-family-roboto-condensed;
+    a {
+      transition: all 200ms ease-in-out;
+      color: $theme-gray-dark;
+      text-decoration: none;
+      position: relative;
+      &:hover {
+        color: $primary-light-text-color;
+        background: $theme-gray-dark;
+      }
+    }
+  }
+  // Teaser author
+  .submitted {
+    color: $theme-gray;
+    font-size: $font-size-xs;
+  }
+  // Teaser summary snippet
+  .field-mg-summary {
+    color: $theme-gray;
+  }
+}
+
+// -----------------------------------
+// Default article teaser style
+// -----------------------------------
+.teaser--default {
+  .content-wrapper {
+    margin-top: 1rem;
+  }
+  .title {
+    font-size: 1.6rem;
+  }
+  .field-mg-summary {
+    color: $secondary-dark-text-color;
+    font-size: $font-size-sm;
+  }
+  .submitted {
+    margin-top: .6rem;
+    color: $primary-dark-text-color;
+  }
+  @include media-breakpoint-up(xl) {
+    .mg-teaser--list & {
+      display: flex;
+      .image {
+        flex: 0 0 270px;
+      }
+      .content-wrapper {
+        margin-top: 0px;
+        padding-left: 1.5rem;
+      }
+    }
+  }
+}
+
+// -----------------------------------
+// Teaser Style (A)
+// -----------------------------------
+.teaser--a {
+  .content-wrapper {
+    text-align: center;
+    padding: 2.8rem 2rem 1.5rem;
+    @include media-breakpoint-up(lg) {
+      padding: 2.8rem 5rem 1.5rem;
+    }
+  }
+  .category {
+    display: inline-block;
+    margin-bottom: .8rem;
+    padding: 0;
+    font-size: .8rem;
+    @include media-breakpoint-up(sm) {
+      font-size: 1rem;
+    }
+    @include media-breakpoint-up(lg) {
+      font-size: 1.2rem;
+    }
+  }
+  .category-name {
+    display: inline-block;
+    background: $theme-gray-lighter;
+    padding: 2px 8px;
+    position: relative;
+    z-index: 1;
+    @include media-breakpoint-up(sm) {
+      padding: 4px 10px;
+    }
+    @include media-breakpoint-up(lg) {
+      padding: 7px 15px;
+    }
+  }
+  .category-sahdow {
+    box-shadow: inset 0 0 20px 0 transparentize(#000, .3);
+    position: absolute;
+    left: -8px;
+    right: 8px;
+    top: -8px;
+    bottom: 8px;
+    z-index: 0;
+  }
+  .title {
+    font-size: 1.8rem;
+    @include media-breakpoint-up(sm) {
+      font-size: 1.8rem;
+    }
+    @include media-breakpoint-up(lg) {
+      font-size: 2.3rem;
+    }
+  }
+  .field-mg-summary {
+    display: none;
+    margin-bottom: .8rem;
+    padding: 0 4rem;
+    color: $theme-gray-light;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+  }
+  a {
+    color: $theme-gray-dark;
+    text-decoration: none;
+    &:hover {
+      color: $theme-gray;
+    }
+    .category {
+      color: $primary-light-text-color;
+    }
+  }
+}
+
+.mg-teaser--big .teaser--a {
+  @media (min-width: 992px) {
+    .title {
+      font-size: 3.5rem;
+    }
+    .content-wrapper {
+      padding: 2.8rem 12rem 3.5rem;
+    }
+  }
+}
+
+// -----------------------------------
+// Teaser Style (B)
+// -----------------------------------
+.teaser--b {
+  height: 100%;
+  .content-wrapper {
+    padding: 1.125rem;
+  }
+  .image {
+    margin-left: -1px;
+    margin-right: -1px;
+  }
+  a {
+    color: $theme-gray-dark;
+    text-decoration: none;
+    &:hover {
+       color: #000;
+    }
+  }
+  .title {
+    @include media-breakpoint-only(lg) {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+// -----------------------------------
+// Teaser Style (C)
+// -----------------------------------
+.teaser--c {
+  @extend .teaser--b;
+  .category {
+    @include media-breakpoint-only(lg) {
+      font-size: 1rem;
+    }
+  }
+  .title {
+    font-size: 1.5rem;
+    @include media-breakpoint-only(lg) {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+// -----------------------------------
+// Teaser Style (D)
+// -----------------------------------
+.teaser--d {
+  display: flex;
+  .content-wrapper {
+    padding-left: 1rem;
+    padding-top: 5px;
+  }
+  .image {
+    flex: 0 0 120px;
+    @include media-breakpoint-up(sm) {
+      flex: 0 0 auto;
+    }
+    @include media-breakpoint-only(lg) {
+      flex: 0 0 138px;
+    }
+  }
+  .comments-count {
+    font-size: .7rem;
+    top: 12px;
+    right: 12px;
+  }
+  .category {
+    font-size: 1rem;
+    @include media-breakpoint-up(sm) {
+      font-size: 1.2rem;
+    }
+    @include media-breakpoint-only(lg) {
+      font-size: 1rem;
+      line-height: 1rem;
+    }
+  }
+  .title {
+    font-size: 1.2rem;
+    @include media-breakpoint-up(sm) {
+      font-size: 1.4rem;
+    }
+    @include media-breakpoint-only(lg) {
+      font-size: 1.2rem;
+    }
+  }
+  .submitted {
+    font-size: $font-size-xs;
+    @include media-breakpoint-only(lg) {
+      display: none;
+    }
+  }
+}
+
+// -----------------------------------
+// Teaser Style (E)
+// -----------------------------------
+.teaser--e {
+  @extend .teaser--d;
+  .field-mg-image:before {
+    display: none;
+  }
+  .title {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+  }
+}
+
+// -----------------------------------
+// Compact teaser
+// -----------------------------------
+//
+// Responsive compact teaser depending on
+// Bootstrap breakpoints.
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .mg-teaser-#{$infix}-compact .ct-readey {
+      display: block;
+      border: none!important;
+      vertical-align: middle;
+      .content-wrapper {
+        background-image: linear-gradient(to top, transparentize(#000, 0), transparentize(#000, 1));
+        color: $primary-light-text-color;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+      }
+      .category {
+        color: $primary-light-text-color;
+      }
+      a {
+        color: $primary-light-text-color;
+        text-decoration: none;
+      }
+      .submitted {
+        color: $theme-gray-light;
+        .name {
+          color: $theme-gray-lighter;
+          font-weight: bold;
+        }
+      }
+    }
+    // Compact teaser hover
+    .mg-teaser--compact a:hover {
+      .field-mg-image:before {
+        box-shadow: inset 0 0 3rem .5rem transparentize(#000, .5);
+      }
+      .title a {
+        background: none;
+        color: #FFF;
+      }
+    }
+  }
+}
+
+// ---------------------------------------
+// Teaser with borders
+// ---------------------------------------
+.mg-teaser--border .ct-readey,
+.mg-teaser--card .ct-readey {
+  border: 1px solid $theme-gray-lighter;
+}
+
+// ---------------------------------------
+// FEATURED TEASERS
+// ---------------------------------------
+.compact-featured {
+  display: block;
+  @include media-breakpoint-up(lg) {
+    vertical-align: middle;
+  }
+  .content-wrapper {
+    background-image: linear-gradient(to top, transparentize(#000, 0), transparentize(#000, 1));
+    padding: 1rem;
+    color: $primary-light-text-color;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+  }
+  .category {
+    color: $primary-light-text-color;
+  }
+  a {
+    color: $primary-light-text-color;
+    text-decoration: none;
+  }
+  .submitted {
+    color: $theme-gray-light;
+    .name {
+      color: $theme-gray-lighter;
+      font-weight: bold;
+    }
+  }
+}
+// Compact teaser over effect
+.mg-teaser--compact a:hover {
+  .field-mg-image:before {
+    box-shadow: inset 0 0 3rem .5rem transparentize(#000, .5);
+  }
+  .title a {
+    background: none;
+    color: #FFF;
+  }
+}
+
+.teaser--featured {
+  background-position: center center;
+  background-size: cover;
+  display: block;
+  a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &:before {
+      content: "";
+      display: block;
+      transition: all 250ms ease-in-out;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 5;
+    }
+    &:hover:before {
+      box-shadow: inset 0 0 3rem .5rem transparentize(#000, .5);
+    }
+  }
+  .content-wrapper {
+    white-space: normal;
+  }
+}
+
+// ------------------------------
+// View: Featured teaser (A)
+// ------------------------------
+.featured-a {
+  .view-content {
+    @extend .clearfix;
+    overflow: auto;
+    white-space: nowrap;
+    @include media-breakpoint-up(xl) {
+      overflow: visible;
+    }
+    .views-row {
+      display: inline-block;
+      width: 90%;
+      @include media-breakpoint-up(xl) {
+        float: left;
+        width: calc(100%/3);
+      }
+    }
+  }
+  .teaser {
+    height: 380px;
+    @include media-breakpoint-up(sm) {
+      height: 480px;
+    }
+  }
+  .content-wrapper {
+    text-align: center;
+    padding: 0 2rem 2rem;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+  .submitted {
+    font-size: .9rem;
+  }
+}
+
+// ------------------------------
+// View: Featured teaser (B)
+// ------------------------------
+.featured-b {
+  .content-wrapper {
+    text-align: left;
+    padding-right: 4rem;
+  }
+  &.featured-view>.view-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &.featured-view>.view-content-wrapper>.view-content {
+    flex: 0 0 100%;
+    @include media-breakpoint-up(lg) {
+      flex: 0 0 50%;
+    }
+    .teaser {
+      height: 380px;
+      @include media-breakpoint-up(sm) {
+        height: 480px;
+      }
+    }
+    .content-wrapper {
+      padding: 0 10% 1.5rem 1.5rem;
+      @include media-breakpoint-up(sm) {
+        padding: 0 25% 2rem 2rem;
+      }
+      @include media-breakpoint-up(lg) {
+        padding: 0 25% 2rem 2rem;
+      }
+    }
+    .category {
+      font-size: 1.2rem;
+    }
+    .title {
+      font-size: 2.5rem;
+      @include media-breakpoint-up(sm) {
+        font-size: 3rem;
+      }
+      @include media-breakpoint-up(lg) {
+        font-size: 2.5rem;
+      }
+      @include media-breakpoint-up(xl) {
+        font-size: 3rem;
+      }
+    }
+    .submitted {
+      font-size: .9rem;
+    }
+  }
+  .attachment-after,
+  .attachment-before {
+    flex: 0 0 100%;
+    @include media-breakpoint-up(lg) {
+      flex: 0 0 50%;
+    }
+    .view-content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .views-row {
+      flex: 0 0 100%;
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 50%;
+      }
+    }
+    .teaser {
+      height: 240px;
+      .title {
+        font-size: 1.6rem;
+        @include media-breakpoint-up(lg) {
+          font-size: 1.4rem;
+        }
+        @include media-breakpoint-up(xl) {
+          font-size: 1.6rem;
+        }
+      }
+      .category {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+// ------------------------------
+// View: Featured teaser (C)
+// ------------------------------
+.featured-c {
+  @extend .featured-b;
+  &.featured-view>.view-content-wrapper>.view-content {
+    order: 1;
+    @include media-breakpoint-up(lg) {
+      order: 2;
+    }
+  }
+  .attachment-before {
+    order: 2;
+    @include media-breakpoint-up(lg) {
+      order: 1;
+    }
+  }
+  .attachment-after {
+    order: 3;
+  }
+  .attachment-after,
+  .attachment-before {
+    @include media-breakpoint-up(lg) {
+      flex: 0 0 25%;
+      .views-row {
+        flex: 0 0 100%;
+      }
+    }
+  }
+}
+
+
+// ------------------------------
+// View: Featured teaser (D)
+// ------------------------------
+.featured-d {
+  .teaser {
+    height: 400px;
+    @include media-breakpoint-up(sm) {
+      height: 460px;
+      @media screen and ( min-height: 800px ){
+        height: 600px;
+      }
+    }
+
+    a:before {
+      background: transparentize(#000, .6)
+    }
+  }
+  .content-wrapper {
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 780px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+    @include media-breakpoint-up(md) {
+      max-width: 980px;
+    }
+  }
+  .title {
+    font-size: 2.5rem;
+    @include media-breakpoint-up(md) {
+      font-size: 3.5rem;
+    }
+  }
+  .submitted {
+    font-size: .9rem;
+  }
+}
+
+
+// --------------------------------
+// PANEL PANES: TIZER CLASSES
+// --------------------------------
+// Teaser list
+// -------------------------
+.mg-teaser--list {
+  .teaser--default,
+  .teaser--d,
+  .teaser--e {
+    border-top: 1px dashed $theme-gray-lighter;
+  }
+
+  .views-row {
+    .teaser {
+      margin-top: 15px;
+      padding-top: 15px;
+    }
+    &:nth-child(1) .teaser {
+      margin-top: 0;
+      padding-top: 0px;
+      border-top: none;
+    }
+    .teaser--a,
+    .teaser--b,
+    .teaser--c {
+      margin-top: 0;
+      margin-bottom: 30px;
+      padding-top: 0;
+    }
+  }
+
+  &.mg-teaser--border .views-row:nth-child(1),
+  &.mg-teaser--card .views-row:nth-child(1) {
+    .teaser--a,
+    .teaser--b,
+    .teaser--c {
+      border-top: 1px solid $theme-gray-lighter;
+    }
+  }
+
+}
+
+// Teaser Ggrid
+// -------------------------
+%mg-teaser--grid {
+  .view-content>ul {
+    @include media-breakpoint-up(md) {
+      @include make-row;
+    }
+  }
+  .views-row {
+    margin-top: 15px;
+    padding-top: 15px;
+    .teaser--d {
+      border-top: 1px dashed $theme-gray-lighter;
+      padding-top: 15px;
+      margin-top: -15px;
+    }
+    &.ct-readey {
+      margin-top: 15px;
+      padding-top: 15px;
+    }
+    &:nth-child(1) {
+      margin-top: 0;
+      padding-top: 0px;
+      .teaser--d {
+        border-top: none;
+      }
+    }
+    @include media-breakpoint-up(md) {
+      @include make-col-ready;
+    }
+  }
+}
+
+// Teaser 2 column grid
+// -------------------------
+.mg-teaser--2-col-grid {
+  @extend %mg-teaser--grid;
+  .views-row {
+    @include media-breakpoint-up(md) {
+      @include make-col(6);
+      &:nth-child(2) {
+        margin-top: 0;
+        padding-top: 0;
+        .teaser--d {
+          border-top: none;
+        }
+      }
+    }
+  }
+}
+
+// Teaser 3 column grid
+// -------------------------
+.mg-teaser--3-col-grid {
+  @extend %mg-teaser--grid;
+  .views-row {
+    @include media-breakpoint-up(lg) {
+      @include make-col(4);
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        margin-top: 0;
+        padding-top: 0;
+        .teaser--d {
+          border-top: none;
+        }
+      }
+    }
+  }
+}
+
+// Teaser 4 column grid
+// -------------------------
+.mg-teaser--4-col-grid {
+  @extend %mg-teaser--grid;
+  .views-row {
+    @include media-breakpoint-up(md) {
+      @include make-col(6);
+      &:nth-child(2) {
+        margin-top: 0;
+        padding-top: 0;
+      }
+      .teaser--b .title {
+        font-size: 1.5rem;
+      }
+    }
+    @include media-breakpoint-up(lg) {
+      @include make-col(3);
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+        margin-top: 0;
+        padding-top: 0;
+      }
+    }
+  } // .views-row
+}
+
+// --------------------------------------------------
+// Popular content teasers
+// --------------------------------------------------
+.view-popular-content .image {
+  position: relative;
+  .overlay {
+    background: linear-gradient(-135deg, transparentize(#9c27b0, .7) 10%, transparentize($theme-primary-light, .5));
+    font-size: 1.125rem;
+    text-align: center;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 20;
+    >div {
+      width: 100px;
+      height: 100px;
+      margin: -50px 0 0 -50px;
+      border: 1px dashed transparentize(#FFF, .1);
+      border-radius: 100px;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    .counter {
+      font-size: 4rem;
+      line-height: 100px;
+    }
+    .views-counter {
+      font-size: 1rem;
+      font-weight: normal;
+    }
+  }
+  a {
+    color: $primary-light-text-color;
+  }
+}
+
+// ------------------------------
+// Most commented teasers
+// ------------------------------
+.most-commented .views-row {
+  margin-bottom: .5rem;
+  padding: 0 2rem .5rem;
+  border-bottom: 1px dashed $theme-gray-lightest;
+  &.views-row-last {
+    border-bottom: none;
+  }
+}
+
+.most-commented {
+  text-align: center;
+  .comments-count-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: .5rem;
+    i.fa {
+      color: $theme-primary;
+      font-size: 3.125rem;
+    }
+    .comments-count-number {
+      width: 100%;
+      color: #FFF;
+      font-size: 1.25rem;
+      font-weight: bold;
+      text-align: center;
+      position: absolute;
+      top: 10px;
+      z-index: 1;
+    }
+  }
+  h3 {
+    margin-bottom: .2rem;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+  }
+  .post-date {
+    color: $secondary-dark-text-color;
+    font-size: .8rem;
+  }
+}

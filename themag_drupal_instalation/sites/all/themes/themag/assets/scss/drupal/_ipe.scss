@@ -1,0 +1,310 @@
+body.panels-ipe {
+  margin-bottom: 60px !important;
+}
+
+div.ctools-modal-content a.close {
+  font-size: 1rem;
+}
+
+/* Hide the IPE toolbar on print output. */
+
+@media print {
+  #panels-ipe-control-container {
+    display: none !important;
+  }
+  body.panels-ipe {
+    margin-top: 0 !important;
+  }
+}
+
+
+/* Hide the control container when the overlay is open. */
+
+html.overlay-open {
+  #panels-ipe-control-container {
+    display: none!important;
+  }
+  ody.panels-ipe {
+    margin-top: 0 !important;
+  }
+}
+
+
+/* Hide empty panes when not editing them. */
+
+.panels-ipe-empty-pane {
+  display: none;
+}
+
+.panels-ipe-editing {
+  div.panels-ipe-portlet-wrapper {
+    margin-top: 1rem;
+    border: 1px dashed $theme-gray-light;
+    transition: box-shadow .2s ease-in-out;
+    &:hover {
+      border: 1px solid transparentize(#000, .9);
+      box-shadow: 0 0 10px 0 transparentize(#000, .7);
+    }
+  }
+  .panels-ipe-sort-container {
+    min-height: 40px;
+    .ui-sortable-helper {
+      background: white;
+    }
+    .ui-sortable-placeholder {
+      background-color: #FFFF99;
+      border: 2px dashed $theme-gray-light;
+      margin: 1rem 0;
+    }
+  }
+  div.panel-pane {
+    div.admin-links {
+      display: none !important;
+    }
+  }
+} // .panels-ipe-editing
+// Linkbar & Buttons
+.panels-ipe-linkbar {
+  @extend .list-unstyled;
+  margin: 0;
+  li {
+    display: inline-block;
+  }
+}
+
+div.panels-ipe-draghandle,
+div.panels-ipe-nodraghandle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $theme-gray-lightest;
+  padding: .8rem;
+  border-bottom: 1px solid $theme-gray-lighter;
+  &:before,
+  &:after {
+    display: none!important;
+  }
+}
+
+div.panels-ipe-draghandle span.panels-ipe-draghandle-icon {
+  display: block;
+  cursor: move;
+}
+
+span.panels-ipe-draghandle-icon-inner,
+li.add-pane a,
+li.style a,
+li.css a,
+li.delete a,
+li.edit a {
+  @include fa-icon();
+  transition: all .2s ease-in-out;
+  &:hover {
+    background: #FFF;
+  }
+}
+
+span.panels-ipe-draghandle-icon-inner:before {
+  content: $fa-var-arrows;
+}
+
+li.add-pane a:before {
+  content: $fa-var-plus;
+}
+
+li.style a:before {
+  content: $fa-var-paint-brush;
+}
+
+li.css a:before {
+  content: $fa-var-css3;
+}
+
+li.delete a:before {
+  content: $fa-var-trash-o;
+}
+
+li.edit a:before {
+  content: $fa-var-gears;
+}
+
+div.panels-ipe-placeholder {
+  border: 1px dashed $theme-gray-light;
+  margin-top: 1rem;
+  padding: 1rem;
+  color: $primary-dark-text-color;
+  text-align: left;
+  position: relative;
+  h3 {
+    font-weight: normal;
+    font-size: 15px;
+    width: 75px;
+    /* In order to prevent the region title from running into the button, set a width. Initital width only--this will be changed by jQuery */
+  }
+}
+
+
+/* Hide editor-state-on elements initially */
+
+.panels-ipe-on {
+  display: none;
+}
+
+.panels-ipe-editing .panels-ipe-on {
+  display: block;
+}
+
+
+/* Show editor-state-off elements initially */
+
+.panels-ipe-off {
+  display: block;
+}
+
+div.panels-ipe-newblock {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -18px; // some initial guesses to help center the add button panels_ipe.js will evaluate the width and get this pixel-perfect
+  margin-left: -30px;
+  z-index: 99;
+}
+
+div.panels-ipe-handlebar-wrapper li a,
+div.panels-ipe-dragtitle span,
+div.panels-ipe-newblock a,
+span.panels-ipe-draghandle-icon {
+  display: block;
+  width: 34px;
+  height: 34px;
+  border: 1px solid $theme-gray-light;
+  color: $primary-dark-text-color;
+  line-height: 32px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  &:hover {
+    background: #FFF;
+  }
+}
+
+div.panels-ipe-handlebar-wrapper li a span,
+div.panels-ipe-newblock a span {
+  @include text-hide;
+}
+
+.panels-ipe-editing .panels-ipe-portlet-content {
+  margin: 10px 3px;
+  overflow: hidden;
+}
+
+.panels-ipe-editing .panels-ipe-region {
+  border: transparent dotted 1px;
+  margin-bottom: 5px;
+}
+
+div.panels-ipe-draghandle {
+  border: none;
+}
+
+.ui-sortable-placeholder {
+  margin: 1rem;
+  border: 1px dashed #000;
+  visibility: visible !important;
+  height: 50px !important;
+}
+
+.ui-sortable-placeholder * {
+  visibility: hidden;
+}
+
+
+/** ============================================================================
+ * Controller form markup
+ */
+
+div#panels-ipe-control-container {
+  z-index: 99999;
+  position: fixed;
+  bottom: 0;
+  display: none;
+  background-color: transparentize(#000, .5);
+  padding: 0.5em 0;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 3px 20px #000;
+}
+
+.ipe-throbber {
+  @extend .fa-spin;
+  @include fa-icon();
+  background-color: transparentize(#000, .3);
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  margin-left: -17px;
+  color: $primary-light-text-color;
+  font-size: 1.2rem;
+  line-height: 34px;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  top: 48.5%;
+  z-index: 1001;
+  &:before {
+    content: $fa-var-spinner;
+    text-align: center;
+  }
+}
+
+
+/* Hide the drupal system throbber image */
+
+.ipe-throbber .throbber {
+  display: none;
+}
+
+div.panels-ipe-pseudobutton-container,
+div.panels-ipe-control .form-submit {
+  cursor: pointer;
+  background: #000;
+  border: 0;
+  border-radius: 3px;
+  color: $primary-light-text-color;
+  display: inline-block;
+  height: 33px;
+  margin: 0 10px;
+  transition: background .2s ease-in-out;
+  &:hover {
+    background: $theme-primary;
+  }
+}
+
+div.panels-ipe-control .form-submit {
+  padding: 0 15px;
+}
+
+div.panels-ipe-pseudobutton-container a {
+  display: inline-block;
+  height: 33px;
+  padding: 0 15px;
+  ;
+  color: #FFF;
+  line-height: 33px;
+  text-decoration: none;
+  text-align: center;
+}
+
+div.panels-ipe-button-container {
+  margin: 0.3em 0.5em;
+  text-align: center;
+}
+
+form#panels-ipe-edit-control-form {
+  text-align: center;
+}
+
+.panels-ipe-dragbar-admin-title {
+  font-size: 0.9em;
+}

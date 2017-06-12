@@ -1,0 +1,98 @@
+// -----------------------------
+// Colors
+// -----------------------------
+$theme-gray-dark:                       #263238;
+$theme-gray:                            #607d8b;
+$theme-gray-light:                      #b0bec5;
+$theme-gray-lighter:                    #cfd8dc;
+$theme-gray-lightest:                   #eceff1;
+
+$theme-primary-light:                   #b2ebf2;
+$theme-primary:                         #00bcd4;
+$theme-primary-dark:                    #0097a7;
+
+$theme-secondary:                       #f44336;
+
+//$theme-accent:                          $gray-blue-300;
+
+$theme-success:                         #4caf50;
+$theme-info:                            #ff9800;
+$theme-warning:                         #f57c00;
+$theme-danger:                          #f44336;
+$theme-inverse:                         $theme-gray-dark;
+
+
+// -----------------------------
+// Text colors
+// -----------------------------
+$primary-dark-text-color:     		    	transparentize($theme-gray-dark, .13) !default;
+$secondary-dark-text-color:	       	    transparentize($theme-gray-dark, .46) !default;
+$hint-dark-text-color:	      			    transparentize($theme-gray-dark, .62) !default;
+
+$primary-light-text-color:		          #FFFFFF !default;
+$secondary-light-text-color:            transparentize(#FFFFFF, .3) !default;
+$hint-light-text-color:				          transparentize(#FFFFFF, .7) !default;
+
+
+// -----------------------------
+// Body
+// -----------------------------
+$theme-body-bg: #fafafa;
+$theme-body-color: $primary-dark-text-color;
+
+
+// -----------------------------
+// Font
+// -----------------------------
+$theme-font-family-roboto:              "Roboto", sans-serif;
+$theme-font-family-roboto-condensed:    "Roboto Condensed", sans-serif;
+
+
+// -----------------------------
+// Superfish Menu (Main Menu)
+// -----------------------------
+$sf-menu-link-bg:                       transparentize($theme-gray-lightest, .1);
+$sf-menu-link-hover-bg:                 transparentize(#FFF, .5);
+$sf-menu-link-color:                    $theme-gray-dark;
+$sf-menu-link-border-bottom:            1px solid transparentize($theme-gray-light, .8);
+$sf-menu-link-arrow-down-color:         $theme-gray;
+
+
+// -----------------------------
+// Responsive side menu
+// -----------------------------
+$sidebar-width:                         260px;
+$sidebar-width-neg:                     -260px;
+
+$sidr-background:                       $theme-gray-dark;
+$sidr-background-shadow-color:          $theme-gray-dark;
+$sidr-box-shadow-color:                 $theme-gray-dark;
+$sidr-input-background-color:           $theme-gray-dark;
+
+$sidr-font-size:                        .9rem;
+$sidr-text-color:                       $primary-dark-text-color;
+
+// Menu Level 1
+$sidr-menu-level1-link-bg:              $theme-gray-dark;
+$sidr-menu-level1-border-bottom:        1px solid transparentize($theme-gray-light, .8);
+$sidr-menu-level1-link-text-color:      $primary-light-text-color;
+// Menu Level 2
+$sidr-menu-level2-link-bg:              #FFF;
+$sidr-menu-level2-border-bottom:        1px solid $theme-gray-lighter;
+$sidr-menu-level2-link-text-color:      $theme-gray-dark;
+
+
+// -----------------------------
+// Vertical Tabs
+// -----------------------------
+$vertical-tabs-bg-color: transparentize(#FFF, .5);
+$vertical-tabs-border-width: 1px !default;
+$vertical-tabs-border-color: transparentize(#000, .85) !default;
+
+
+
+
+
+
+
+

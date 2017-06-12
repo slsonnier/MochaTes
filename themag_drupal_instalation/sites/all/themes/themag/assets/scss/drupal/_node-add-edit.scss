@@ -1,0 +1,80 @@
+body.page-node-add,
+body.page-node-edit,
+body.page-node-delete {
+  font-size: 14px;
+  h1.page-title {
+    font-size: 3rem;
+    color: $gray-light;
+    em {
+      color: $gray-dark;
+      font-style: normal;
+    }
+  }
+  .container {
+    width: 1070px;
+  }
+  // ---------------------
+  // Paragraph Field
+  // ---------------------
+  .field-name-field-mg-paragraph {
+    background: #FFF;
+    margin: 1rem 0;
+    padding: 1.5rem;
+    border: 1px solid $theme-gray-lighter;
+    border-radius: $border-radius;
+    .entity-paragraphs-item {
+      width: auto!important;
+      margin: 0!important;
+    }
+    tr.draggable {
+      border: 1px dashed #FFF;
+      &:hover {
+        background: lighten($theme-gray-lightest, 2%);
+        border-color: $gray-light;
+      }
+      >td {
+        padding: 1rem;
+      }
+    }
+    .delta-order .form-control {
+      width: auto;
+    }
+    .form-actions {
+      margin-top: 1rem;
+      input[type="submit"] {
+        @extend .btn-sm;
+        margin-right: .5rem;
+      }
+    }
+    .owl-carousel {
+      max-width: 890px;
+    }
+  }
+  #edit-field-mg-paragraph-und-add-more {
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border: 1px solid $gray-lighter;
+    text-align: left;
+    input[type="submit"] {
+      @extend .btn-primary;
+      margin: 5px;
+    }
+  }
+} // body.node-add/edit
+// ------------------------
+// CKEditor
+// ------------------------
+.cke_chrome {
+  box-shadow: none!important;
+  //  border: 1px solid #EEE;
+}
+
+.cke_contents {
+  background: $body-bg!important;
+  padding: 15px 20px!important;
+}
+
+.cke_editable {
+  font-size: 1.1rem;
+  font-weight: 300;
+}

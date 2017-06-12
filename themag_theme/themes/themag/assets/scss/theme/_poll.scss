@@ -1,0 +1,76 @@
+// ----------------------
+// Poll Pane/Block
+// ----------------------
+.pane-poll-recent {
+  ul.links {
+    text-align: right;
+    li {
+      display: inline-block;
+      margin-left: 0rem;
+    }
+    a {
+      color: $theme-gray-light;
+    }
+  }
+}
+
+// ----------------------
+// Poll
+// ----------------------
+.poll {
+  background: $theme-gray-lightest;
+  .title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.9rem;
+    border-bottom: 1px solid $theme-gray-lighter;
+  }
+  .bar {
+    background: $theme-gray-lighter;
+    height: 5px;
+    color: $secondary-dark-text-color;
+    .foreground {
+      background: $theme-primary;
+      max-width: 0;
+      height: 5px;
+      transition: max-width 2s ease-in-out;
+    }
+  }
+  .totoal-wrapper {
+    color: $theme-gray-light;
+    font-size: .9rem;
+  }
+  .vote-form {
+    background: $theme-gray-lightest;
+    .title {
+      border-bottom: 1px solid $theme-gray-lighter;
+    }
+    .choices {
+      display: block;
+    }
+    input[type='submit'] {
+      display: block;
+      width: 100%;
+      margin-top: 2rem;
+      cursor: pointer;
+    }
+  }
+  .form-item-choice label {
+    margin-left: .5rem;
+    font-size: 1.125rem;
+  }
+  .links {
+    text-align: right;
+  }
+}
+
+#poll-cancel-form .form-actions {
+  margin-bottom: 0;
+}
+
+// CSS Class when poll enters in the viewport
+.poll.active {
+  .bar .foreground {
+    max-width: 100%;
+  }
+}

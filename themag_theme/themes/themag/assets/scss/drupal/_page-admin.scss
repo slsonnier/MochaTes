@@ -1,0 +1,48 @@
+body.page-admin {
+  font-size: 14px;
+}
+
+// ------------------------
+// Sortable Items
+// ------------------------
+li.sortableItem {
+  box-sizing: content-box;
+}
+
+// ------------------------
+// Configuration page
+// ------------------------
+body.page-admin-config div.admin {
+  div.left,
+  div.right {
+    width: 48.5%;
+    margin: 0px;
+  }
+}
+
+body.page-admin div.admin-panel {
+  @extend .card;
+  padding: 0;
+  h3 {
+    @extend .card-header;
+    @extend .h5;
+  }
+  div.body {
+    @extend .card-block;
+  }
+  dl.admin-list {
+    margin: 0px;
+    dd {
+      margin: 5px 20px;
+      color: $secondary-dark-text-color;
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// ------------------------
+// Panelizer
+// ------------------------
+.page-node-panelizer {
+  @extend body.page-admin;
+}

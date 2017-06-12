@@ -1,0 +1,39 @@
+; themag make file for local development
+core = "7.x"
+api = "2"
+
+projects[drupal][version] = "7.x"
+; include the d.o. profile base
+includes[] = "drupal-org.make"
+
+; +++++ Libraries +++++
+
+; bgrins-spectrum
+libraries[bgrins-spectrum][directory_name] = "bgrins-spectrum"
+libraries[bgrins-spectrum][type] = "library"
+libraries[bgrins-spectrum][destination] = "libraries"
+libraries[bgrins-spectrum][download][type] = "get"
+libraries[bgrins-spectrum][download][url] = "" ; TODO add download URI
+
+; owl-carousel
+libraries[owl-carousel][directory_name] = "owl-carousel"
+libraries[owl-carousel][type] = "library"
+libraries[owl-carousel][destination] = "libraries"
+libraries[owl-carousel][download][type] = "get"
+libraries[owl-carousel][download][url] = "" ; TODO add download URI
+
+; rrssb
+libraries[rrssb][directory_name] = "rrssb"
+libraries[rrssb][type] = "library"
+libraries[rrssb][destination] = "libraries"
+libraries[rrssb][download][type] = "get"
+libraries[rrssb][download][url] = "" ; TODO add download URI
+
+; +++++ Patches +++++
+
+projects[paragraphs][patch][] = "paragraphs-fix_parents_access-2562463-20-7.x.patch" ; TODO add path to patch
+
+projects[field_group][patch][] = "php7_uniform_variable-2649648-5.patch" ; TODO add path to patch
+
+projects[backup_migrate][patch][] = "backup_migrate-fix_constructor_for_future_version_php-2623598-5-7.x.patch" ; TODO add path to patch
+

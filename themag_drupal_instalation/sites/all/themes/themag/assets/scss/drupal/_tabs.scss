@@ -1,0 +1,88 @@
+/**
+ * Drupal Primary and Secondary tabs
+ */
+
+// Tabs Defaults
+// --------------------------
+ul.primary,
+ul.secondary {
+  padding: 0;
+  list-style: none;
+}
+
+// Standard Tabs Style
+// --------------------------
+.tabs ul.primary {
+  display: flex;
+  border-bottom: 1px solid $gray-400;
+  >li {
+    font-size: 16px;
+  }
+  >li a {
+    transition: all .2s ease-in-out;
+    border-radius: 2px;
+    display: block;
+    padding: 8px 20px;
+    border: none;
+    color: $gray-500;
+    text-decoration: none;
+    &:hover {
+      color: $gray-900;
+    }
+    &.active {
+      margin-bottom: -1px;
+      border: 1px solid $gray-400;
+      border-bottom-color: #FFF;
+      color: $gray-900;
+      font-weight: 500;
+    }
+  }
+}
+
+.tabs ul.secondary {
+  display: flex;
+  margin: 0px;
+  padding: 10px 10px;
+  >li {
+    margin: 0px;
+    padding: 0px 15px;
+    border-right: 1px solid $gray-300;
+    font-size: 16px;
+  }
+  >li a {
+    color: $gray-700;
+    &.active {
+      color: $gray-900;
+      font-weight: 500;
+    }
+  }
+}
+
+// Floating Tabs Style
+// --------------------------
+.floating-tabs {
+  transition: all .2s ease-in-out;
+  width: 200px;
+  padding: 1rem;
+  background: transparentize($gray-300, .1);
+  position: fixed;
+  top: 35%;
+  right: -200px;
+  z-index: $zindex-navbar-fixed;
+  &.active {
+    right: 0px;
+  }
+}
+
+.tabs-settings-button {
+  background: $gray-400;
+  display: inline-block;
+  vertical-align: middle;
+  width: 45px;
+  height: 45px;
+  line-height: 55px;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  left: -45px;
+}

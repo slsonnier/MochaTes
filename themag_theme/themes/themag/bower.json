@@ -1,0 +1,87 @@
+{
+  "name": "theme_plugins",
+  "description": "Theme Plug-ins and Components",
+  "main": "gulpfile.js",
+  "authors": [
+    "PinkDexo"
+  ],
+  "keywords": [
+    "plugins"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha.6",
+    "font-awesome": "^4.7.0",
+    "photoswipe": "^4.1.1",
+    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git#^10.1.0",
+    "waypoints": "https://github.com/imakewebthings/waypoints.git#^4.0.1",
+    "sidr": "https://github.com/artberri/sidr.git#^2.2.1",
+    "video.js": "^5.12.5",
+    "sticky-kit": "^1.1.2",
+    "parallax.js": "https://github.com/pixelcog/parallax.js.git#^1.4.2"
+  },
+  "devDependencies": {},
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/**/*.*",
+        "scss/**/*.*"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "scss/**/*.*"
+      ]
+    },
+    "video.js": {
+      "main": [
+        "dist/font/*.*",
+        "dist/lang/*.*",
+        "dist/video.js",
+        "dist/video.min.js",
+        "dist/video-js.css",
+        "dist/video-js.min.css",
+        "dist/video-js.swf"
+      ]
+    },
+    "photoswipe": {
+      "main": "dist/**/*.*"
+    },
+    "waypoints": {
+      "main": "lib/**/*.*"
+    },
+    "sticky-kit": {
+      "main": [
+        "jquery.sticky-kit.js",
+        "jquery.sticky-kit.min.js"
+      ]
+    },
+    "parallax.js": {
+      "main": [
+        "parallax.js",
+        "parallax.min.js"
+      ]
+    },
+    "sidr": {
+      "main": [
+        "dist/**/*.*",
+        "src/**/*.*"
+      ]
+    },
+    "tether": {
+      "main": [
+        "dist/**/*.*",
+        "src/**/*.*"
+      ]
+    },
+    "jquery": {
+      "ignore": true
+    }
+  }
+}

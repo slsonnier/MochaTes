@@ -1,0 +1,194 @@
+// -----------------------
+// Form
+// -----------------------
+form {
+  @include clearfix;
+    .field-multiple-table {
+      width: 100%;
+    }
+}
+
+.form-control {
+  width: 100%;
+}
+
+input {
+  transition: all .2s ease-in-out;
+}
+
+
+.form-actions {
+  @extend .form-group;
+  padding-top: 1.5rem;
+    input {
+      margin-right: 10px;
+    }
+}
+
+// -----------------------
+// Inline forms
+// -----------------------
+.container-inline {
+  > div, label, {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+// -----------------------
+// Fieldset
+// -----------------------
+fieldset,
+fieldset.webform-submission-info {
+  @extend .card;
+  display: block;
+  padding-top: 48px;
+  margin-bottom: 1.5rem;
+
+  legend {
+    @extend .card-header;
+    display: block;
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+  }
+
+  .fieldset-wrapper {
+    @extend .card-block;
+  }
+}
+
+.fieldset-description {
+  border-bottom: 1px solid $theme-gray-lighter;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+// -----------------------
+// Bootstrap custom file
+// -----------------------
+.custom-file {
+  margin-right: 1rem;
+  vertical-align: top;
+}
+
+
+// --------------------------------
+// Collapsed Fieldset
+// --------------------------------
+
+html.js fieldset.collapsible {
+  a {
+    color: $theme-gray-dark;
+    text-decoration: none;
+  }
+  span.fieldset-legend {
+    background: none!important;
+    margin: 0px;
+    padding: 0px;
+      &:before {
+        content: "-";
+      }
+  }
+}
+
+html.js fieldset.collapsed {
+  border-width: 1px;
+
+  span.fieldset-legend {
+    background: none!important;
+    margin: 0px;
+    padding: 0px;
+      &:before {
+        content: "+";
+      }
+  }
+}
+
+
+// -----------------------
+// Labels
+// -----------------------
+.form-group > label:not(.option) {
+  margin-bottom: 0;
+  font-size: .8rem;
+  font-weight: bold;
+}
+// -----------------------
+// Radios & Checkboxes
+// -----------------------
+.form-group {
+  &.form-type-radio,
+  &.form-type-checkbox {
+    margin-bottom: 0;
+  }
+}
+
+
+// -----------------------
+// Action Links
+// -----------------------
+ul.action-links {
+  @extend .list-unstyled;
+    li {
+      display: inline-block;
+    }
+}
+
+.action-links {
+  a {
+   @extend .btn;
+   @extend .btn-primary;
+   @extend .btn-outline-primary;
+   margin: 0 5px;
+  }
+}
+
+// -----------------------
+// Password Field
+// -----------------------
+.password-strength {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.password-strength-title {
+  display: none;
+}
+
+.password-strength-text {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.password-indicator {
+  background: $gray-lighter;
+  width: 200px;
+  height: 5px;
+  .indicator {
+    background: $green;
+    width: 0;
+    height: 100%;
+  }
+}
+
+div.password-confirm {
+  visibility: hidden;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: bold;
+}
+
+.password-suggestions.description {
+  background: lighten($orange, 30%);
+  padding: 1rem;
+  border: 1px solid $orange;
+  border-radius: $border-radius;
+  color: darken($orange, 30%);
+  font-size: .7rem;
+    ul {
+      margin-bottom: 0;
+    }
+}

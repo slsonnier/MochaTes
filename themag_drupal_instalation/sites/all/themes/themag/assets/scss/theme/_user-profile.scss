@@ -1,0 +1,44 @@
+// --------------------
+// User Profile Page
+// (Author Page)
+// --------------------
+.user-profile-wrapper {
+  background: $theme-gray-lightest;
+  padding: 2rem;
+  text-align: center;
+  @include media-breakpoint-up(md) {
+    text-align: left;
+  }
+  .user-picture {
+    margin-bottom: 1rem;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 0;
+    }
+    img {
+      background: #FFF;
+      padding: 2px;
+      border: 1px solid $theme-gray-light;
+      border-radius: 50%;
+    }
+  }
+  .user-social {
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+    border-bottom: 1px solid $theme-gray-lighter;
+    li {
+      display: inline-block;
+      margin-right: .5rem;
+    }
+    a {
+      transition: all .25s ease-in-out;
+      color: $theme-gray-light;
+    }
+    a:hover {
+      color: $theme-gray-dark;
+    }
+  }
+  .user-signature {
+    color: $secondary-dark-text-color;
+    font-size: .9rem;
+  }
+}

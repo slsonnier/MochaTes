@@ -1,0 +1,126 @@
+// ----------------------------------------
+// Responsive Sidr Menu
+// ----------------------------------------
+.sidr {
+  display: block;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  z-index: 999999;
+  width: $sidebar-width;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: $sidr-font-size;
+  background: $sidr-background;
+  color: $sidr-text-color;
+  box-shadow: 0 0 5px 5px $sidr-background-shadow-color inset;
+  &.right {
+    left: auto;
+    right: $sidebar-width-neg;
+  }
+  &.left {
+    left: $sidebar-width-neg;
+    right: auto;
+  }
+}
+
+// Sidr Panes & Blocksv
+// -------------------
+.sidr .block,
+.sidr .panel-pane {
+  h2 {
+    margin: 0;
+    padding: 1rem;
+    font-size: .8rem;
+    text-transform: uppercase;
+  }
+}
+
+// Sidr Main Menu
+// -------------------
+.sidr .menu {
+  @extend .list-unstyled;
+  background: $sidr-menu-level1-link-bg;
+  a,
+  .nolink {
+    display: block;
+    padding: 15px 20px;
+    border-bottom: $sidr-menu-level1-border-bottom;
+    color: $sidr-menu-level1-link-text-color;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+  }
+  li.expanded {
+    >a:before,
+    >.nolink:before {
+      @extend .fa-chevron-down;
+      @include fa-icon;
+      margin-top: -6px;
+      color: $sidr-menu-level1-link-text-color;
+      font-size: .6rem;
+      line-height: .6rem;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+    }
+    ul {
+      background: $sidr-menu-level2-link-bg;
+      li.expanded>a:before,
+      li.expanded>.nolink:before {
+        color: $sidr-menu-level2-link-text-color;
+      }
+      a,
+      .nolink {
+        padding: 10px 20px 10px 40px;
+        border-bottom: $sidr-menu-level2-border-bottom;
+        color: $sidr-menu-level2-link-text-color;
+        font-weight: normal;
+        text-transform: none;
+      }
+      li.expanded ul a {
+        color: $sidr-menu-level2-link-text-color;
+        padding-left: 60px;
+      }
+    }
+  }
+  li.expanded>ul {
+    max-height: 0;
+    overflow-y: hidden;
+    transition: max-height .5s ease-in-out;
+    &.open {
+      max-height: 800px;
+    }
+  }
+}
+
+// Soocial menu in sidr
+// -----------------------
+.sidr .social-menu {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  li {
+    display: inline-block;
+  }
+}
+
+// Overlay
+// -----------
+.responsive-menu-overlay {
+  background: #000;
+  opacity: 0;
+  transition: opacity 1s ease;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  z-index: 100;
+  &.active {
+    right: 0;
+    opacity: .5;
+  }
+}

@@ -1,0 +1,29 @@
+html, body {
+	overflow-x: hidden;
+	margin: 0px;
+	padding: 0px;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* { outline: none!important; }
+
+
+// In case Bootstrap container appears
+// into another Bootstrap container
+// ------------------------------------------
+.container .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Layout Wrapper
+.layout-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+// Drupal Dragable
+.tabledrag-handle {
+  box-sizing: content-box;
+}

@@ -1,0 +1,42 @@
+/**
+ * Drupal Vertical Tabs
+ */
+
+div.vertical-tabs {
+  background: $vertical-tabs-bg-color;
+  margin-top: 5rem;
+  border: $vertical-tabs-border-width solid $vertical-tabs-border-color;
+  font-size: $font-size-sm;
+}
+
+.vertical-tabs ul.vertical-tabs-list {
+  margin-top: -($vertical-tabs-border-width);
+  border: none;
+  li {
+    background: none;
+    border-color: transparentize($vertical-tabs-border-color, 1);
+    .summary {
+      font-size: $font-size-sm;
+    }
+  }
+  li.selected {
+    background: $vertical-tabs-bg-color;
+    border: $vertical-tabs-border-width solid $vertical-tabs-border-color;
+    border-right: $vertical-tabs-border-width solid $vertical-tabs-bg-color;
+  }
+  li a {
+    transition: all .2s ease-in-out;
+    color: $secondary-dark-text-color;
+    &:hover {
+      color: $primary-dark-text-color;
+      outline: none;
+      strong {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.vertical-tabs .vertical-tabs-panes {
+  padding: .5rem;
+}

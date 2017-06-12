@@ -1,0 +1,41 @@
+v1.0.1
+
+Release date: May 05, 2017
+
+Improvements:
+
+- Fixed: Problem with the theme settings caused by the bug in the .info file.
+
+Modified Files:
+- themag.info
+- SUBTHEMEKIT/SUBTHEMEKIT.info.txt
+
+---------
+
+v1.0.1
+
+Release date: April 18, 2017
+
+Improvements:
+
+- Fixed: Prevent sticky elements from overlapping on pages where the IPE editor is active.
+- Fixed: Sticky header overlaps the sticky elements.
+- Fixed: PHP Error: Call to undefined function libraries_get_path() in the theme settings page.
+
+Modified Files:
+
+- assets/scss/theme/_teasers.scss
+- assets/css/style.css
+- assets/js/src/header.js
+- assets/js/src/stick-in-parent.js
+- assets/js/main.js
+- assets/js/main.min.js
+- theme-settings.php
+
+---------
+
+v1.0
+
+Release date: April 13, 2017
+
+First Release.

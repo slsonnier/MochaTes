@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the TheMAG Pages and Panels feature.
+ */
+
+include_once 'mg_pages_and_panels.features.inc';
